@@ -190,4 +190,26 @@ for i in range(10):
     print(f"(x1,x2) = ({df.loc[i,'x1']:.2f}, {df.loc[i,'x2']:.2f}): Actual value: {df.loc[i,'y']:.2f}. Predicted value: {df.loc[i,'y_hat']:.2f}")
 
 
+def calculate_mae(y_true, y_pred):
+    """
+    Calculate Mean Absolute Error (MAE)
+    
+    Arguments:
+    y_true -- true labels, numpy array of shape (1, number of examples)
+    y_pred -- predicted labels, numpy array of shape (1, number of examples)
+    
+    Returns:
+    mae -- Mean Absolute Error
+    """
+    m = y_true.shape[1]  # number of examples
+    mae = np.sum(np.abs(y_true - y_pred)) / m
+    
+    return mae
+
+# Calculate MAE for your model
+mae = calculate_mae(Y, y_hat)
+print(f"Mean Absolute Error: {mae:.2f}")
+
+
+
 
